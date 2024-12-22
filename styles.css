@@ -1,53 +1,128 @@
+/* إعدادات أساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* إعدادات عامة */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #1a1a1a;
-  color: white;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
+
+/* التنسيق للـ Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
+    background-color: #0044cc;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .navbar .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #ff4c4c;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
 }
+
 .navbar .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
+
 .navbar .nav-links li a {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
 }
+
+/* التنسيق للترويسة */
 .hero {
-  text-align: center;
-  padding: 50px 20px;
-  background: linear-gradient(to bottom, #ff4c4c, #0044cc);
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
 }
+
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 .hero .btn {
-  background-color: white;
-  color: #0044cc;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 5px;
+    background-color: white;
+    color: #0044cc;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
 }
+
+.hero .btn:hover {
+    background-color: #0033a0;
+    color: white;
+}
+
+/* التنسيق لمنتجات مميزة */
+.features {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.features h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #0044cc;
+}
+
+.feature-item {
+    display: inline-block;
+    width: 30%;
+    margin: 20px 1%;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #0044cc;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* التنسيق للتذييل */
 .footer {
-  text-align: center;
-  padding: 10px 0;
-  background-color: #333;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    font-size: 14px;
 }
