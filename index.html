@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>موقع 7soon</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- تضمين بايبال JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=iaBhm7f9sM_zTpAgmRqPQu8iKY5-nRn_Ae4c5POc-A-WgTpiC8MpPEFdttmd8yDZnETaxDjZepN&currency=USD"></script>
 </head>
 <body>
 
@@ -13,19 +15,53 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="products.html">المنتجات</a></li>
-                <li><a href="javascript:void(0);" id="cert-button">Cert</a></li>
+                <li><a href="index.html" class="home-link">الرئيسية</a></li>
+                <li><a href="products.html" class="products-link">المنتجات</a></li>
+                <li><a href="javascript:void(0);" id="cert-button" class="cert-link">Cert</a></li>
             </ul>
         </nav>
+        <!-- زر تغيير اللغة -->
+        <button id="language-toggle">تغيير اللغة</button>
     </header>
 
     <!-- محتوى الصفحة الرئيسية -->
     <main>
         <section class="intro">
-            <h1>مرحباً بكم في 7soon!</h1>
-            <p>متجر الكتروني يوفر لك أفضل المنتجات في عالم التكنولوجيا.</p>
+            <h1 class="main-heading">مرحباً بك in 7soon store!</h1>
+            <p class="main-description">متجر الكتروني يوفر لك أفضل المنتجات في عالم التكنولوجيا.</p>
             <button class="shop-now">تسوق الآن</button>
+        </section>
+
+        <section class="products">
+            <h2 class="products-heading">منتجاتنا</h2>
+            <div class="product-list">
+                <!-- منتج 1 -->
+                <div class="product-card">
+                    <img src="product1.jpg" alt="منتج 1">
+                    <h3 class="product-name">tweak</h3>
+                    <p class="product-description">زياده فريمات وتخفيف الجهاز.</p>
+                    <p class="product-price">السعر: $15</p>
+                    <button class="add-to-cart" onclick="addToCart('منتج 1', 100)">إضافة إلى السلة</button>
+                </div>
+
+                <!-- منتج 2 -->
+                <div class="product-card">
+                    <img src="product2.jpg" alt="منتج 2">
+                    <h3 class="product-name">macro</h3>
+                    <p class="product-description">تسوي ادت بضغطخ زر 2.</p>
+                    <p class="product-price">السعر: $10</p>
+                    <button class="add-to-cart" onclick="addToCart('منتج 2', 150)">إضافة إلى السلة</button>
+                </div>
+
+                <!-- منتج 3 -->
+                <div class="product-card">
+                    <img src="product3.jpg" alt="منتج 3">
+                    <h3 class="product-name">hacke fortnite 3</h3>
+                    <p class="product-description">هاك فورتنايت في ميزات ماتنعد 3.</p>
+                    <p class="product-price">السعر: $25</p>
+                    <button class="add-to-cart" onclick="addToCart('منتج 3', 200)">إضافة إلى السلة</button>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -33,9 +69,14 @@
     <div id="cert-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h2>معلومات Cert</h2>
-            <p>هذه هي صفحة الشهادات. يمكنك هنا الاطلاع على جميع تفاصيل الشهادات.</p>
+            <h2 class="cert-heading">معلومات Cert</h2>
+            <p class="cert-description">هذه هي صفحة الشهادات. يمكنك هنا الاطلاع على جميع تفاصيل الشهادات.</p>
         </div>
+    </div>
+
+    <!-- زر بايبال -->
+    <div id="paypal-button-container">
+        <!-- سيتم تحميل زر بايبال هنا -->
     </div>
 
     <script src="scripts.js"></script>
