@@ -32,36 +32,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cartTotalElement.textContent = total.toFixed(2);
         cartCountElement.textContent = cart.length;
-        renderPayPalButton(total);
+        renderPayPalButton(total); // عرض زر PayPal بعد تحديث السلة
     }
 
     // عرض زر PayPal
     function renderPayPalButton(total) {
         const paypalContainer = document.querySelector("#paypal-button-container");
-        paypalContainer.innerHTML = ""; // Clear previous button
-
-        paypal.Buttons({
-            createOrder: function (data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: total.toFixed(2)
-                        }
-                    }]
-                });
-            },
-            onApprove: function (data, actions) {
-                return actions.order.capture().then(function (details) {
-                    alert("Transaction completed by " + details.payer.name.given_name);
-                    cart.length = 0; // Clear the cart after successful payment
-                    updateCart(); // Update cart display
-                });
-            },
-            onError: function (err) {
-                console.error(err);
-                alert("An error occurred during the payment process.");
-            }
-        }).render("#paypal-button-container");
+        
+        // تأكد من أن زر PayPal يتم عرضه فقط إذا كانت السلة تحتوي على منتجات
+        if (total > 0) {
+            paypalContainer.innerHTML = ""; // Clear any existing button
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: total.toFixed(2)
+                            }
+                        }]
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        alert("Transaction completed by " + details.payer.name.given_name);
+                        cart.length = 0; // Clear the cart after successful payment
+                        updateCart(); // Update cart display
+                    });
+                },
+                onError: function (err) {
+                    console.error(err);
+                    alert("An error occurred during the payment process.");
+                }
+            }).render(paypalContainer); // Render the PayPal button
+        } else {
+            paypalContainer.innerHTML = ""; // Hide PayPal button if total is 0
+        }
     }
 
     // إضافة منتج إلى السلة
@@ -84,5 +89,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    updateCart();
+    updateCart(); // Initial cart update
 });
