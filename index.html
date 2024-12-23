@@ -15,23 +15,20 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html" class="home-link">الرئيسية</a></li>
-                <li><a href="products.html" class="products-link">المنتجات</a></li>
-                <li><a href="javascript:void(0);" id="cert-button" class="cert-link">Cert</a></li>
-                <!-- زر السلة -->
-                <li><button id="cartButton" onclick="toggleCart()">سلة التسوق</button></li>
+                <li><a href="/" class="nav-link">الرئيسية</a></li>
+                <li><a href="/about" class="nav-link">من نحن</a></li>
+                <li><a href="/services" class="nav-link">خدماتنا</a></li>
+                <li><a href="/contact" class="nav-link">اتصل بنا</a></li>
+                <li><button id="cartButton" class="cart-btn" onclick="toggleCart()">سلة التسوق</button></li>
             </ul>
         </nav>
-        <!-- زر تغيير اللغة -->
-        <button id="language-toggle">تغيير اللغة</button>
     </header>
 
     <!-- محتوى الصفحة الرئيسية -->
     <main>
         <section class="intro">
-            <h1 class="main-heading">مرحباً بك في متجر 7soon!</h1>
+            <h1 class="main-heading">مرحباً بك في 7soon store!</h1>
             <p class="main-description">متجر الكتروني يوفر لك أفضل المنتجات في عالم التكنولوجيا.</p>
-            <button class="shop-now">تسوق الآن</button>
         </section>
 
         <section class="products">
@@ -41,7 +38,7 @@
                 <div class="product-card">
                     <img src="product1.jpg" alt="منتج 1">
                     <h3 class="product-name">tweak</h3>
-                    <p class="product-description">زيادة الفريمات وتخفيف الجهاز.</p>
+                    <p class="product-description">زيادة فريمات وتخفيف الجهاز.</p>
                     <p class="product-price">السعر: $15</p>
                     <button class="add-to-cart" onclick="addToCart('منتج 1', 15)">إضافة إلى السلة</button>
                 </div>
@@ -50,7 +47,7 @@
                 <div class="product-card">
                     <img src="product2.jpg" alt="منتج 2">
                     <h3 class="product-name">macro</h3>
-                    <p class="product-description">تسوي إدات بضغط زر 2.</p>
+                    <p class="product-description">تسوي إدخال بضغطة زر.</p>
                     <p class="product-price">السعر: $10</p>
                     <button class="add-to-cart" onclick="addToCart('منتج 2', 10)">إضافة إلى السلة</button>
                 </div>
@@ -65,117 +62,25 @@
                 </div>
             </div>
         </section>
+
+        <!-- نافذة Cert (Modal) -->
+        <div id="cert-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeCert()">&times;</span>
+                <h2 class="cert-heading">معلومات Cert</h2>
+                <p class="cert-description">هذه هي صفحة الشهادات. يمكنك هنا الاطلاع على جميع تفاصيل الشهادات.</p>
+            </div>
+        </div>
     </main>
 
-    <!-- نافذة Cert (Modal) -->
-    <div id="cert-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeCert()">&times;</span>
-            <h2 class="cert-heading">معلومات Cert</h2>
-            <p class="cert-description">هذه هي صفحة الشهادات. يمكنك هنا الاطلاع على جميع تفاصيل الشهادات.</p>
-        </div>
-    </div>
-
     <!-- سلة التسوق -->
-    <div id="cart-container" class="cart-container">
-        <div id="cart-content">
-            <h2>سلة التسوق</h2>
-            <ul id="cart-items-list">
-                <!-- سيتم إضافة العناصر هنا بواسطة جافا سكريبت -->
-            </ul>
-            <p>المجموع: $<span id="cart-total">0</span></p>
-            <!-- زر الدفع بايبال -->
-            <div id="paypal-button-container"></div>
-        </div>
-        <button class="close-cart" onclick="toggleCart()">إغلاق السلة</button>
+    <div id="cart-container" style="display:none;">
+        <h3>سلة التسوق</h3>
+        <ul id="cart-items-list"></ul>
+        <p id="cart-total">المجموع: 0$</p>
+        <div id="paypal-button-container"></div>
     </div>
-
-    <script>
-        // تخزين محتويات السلة
-        let cart = [];
-
-        // إضافة منتج إلى السلة
-        function addToCart(productName, price) {
-            cart.push({ productName, price });
-            updateCart();
-        }
-
-        // تحديث السلة
-        function updateCart() {
-            const cartList = document.getElementById("cart-items-list");
-            const cartTotal = document.getElementById("cart-total");
-            cartList.innerHTML = "";  // مسح السلة الحالية
-
-            let total = 0;
-
-            // إضافة العناصر إلى السلة
-            cart.forEach(item => {
-                const listItem = document.createElement("li");
-                listItem.textContent = `${item.productName} - $${item.price}`;
-                cartList.appendChild(listItem);
-                total += item.price;
-            });
-
-            // تحديث المجموع
-            cartTotal.textContent = total;
-
-            // تفعيل زر بايبال
-            if (total > 0) {
-                renderPaypalButton();
-            }
-        }
-
-        // التبديل بين إظهار وإخفاء السلة
-        function toggleCart() {
-            const cartContainer = document.getElementById("cart-container");
-            cartContainer.style.display = cartContainer.style.display === "block" ? "none" : "block";
-        }
-
-        // عرض زر بايبال
-        function renderPaypalButton() {
-            paypal.Buttons({
-                createOrder: function(data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: document.getElementById("cart-total").textContent
-                            }
-                        }]
-                    });
-                },
-                onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(details) {
-                        alert("تم الدفع بنجاح! مرحباً " + details.payer.name.given_name);
-                    });
-                }
-            }).render('#paypal-button-container');
-        }
-
-        // إغلاق نافذة Cert
-        function closeCert() {
-            document.getElementById("cert-modal").style.display = "none";
-        }
-
-        // تفعيل السلة عند الضغط على زر السلة
-        document.getElementById("cartButton").addEventListener("click", toggleCart);
-    </script>
 
     <script src="scripts.js"></script>
 </body>
 </html>
-<header>
-    <nav>
-        <ul>
-            <li><a href="/" class="nav-link">الرئيسية</a></li>
-            <li><a href="/about" class="nav-link">من نحن</a></li>
-            <li><a href="/services" class="nav-link">خدماتنا</a></li>
-            <li><a href="/contact" class="nav-link">اتصل بنا</a></li>
-            <!-- زر السلة -->
-            <li><button id="cartButton" class="cart-btn" onclick="toggleCart()">سلة التسوق</button></li>
-        </ul>
-    </nav>
-</header>
-<!-- زر بايبال -->
-<div id="paypal-button-container" style="margin-top: 20px; display:none;">
-    <!-- سيتم تحميل زر بايبال هنا -->
-</div>
