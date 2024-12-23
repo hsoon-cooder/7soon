@@ -18,6 +18,8 @@
                 <li><a href="index.html" class="home-link">الرئيسية</a></li>
                 <li><a href="products.html" class="products-link">المنتجات</a></li>
                 <li><a href="javascript:void(0);" id="cert-button" class="cert-link">Cert</a></li>
+                <!-- زر السلة -->
+                <li><button id="cartButton" onclick="viewCart()">سلة التسوق</button></li>
             </ul>
         </nav>
         <!-- زر تغيير اللغة -->
@@ -27,7 +29,7 @@
     <!-- محتوى الصفحة الرئيسية -->
     <main>
         <section class="intro">
-            <h1 class="main-heading">مرحباً بك in 7soon store!</h1>
+            <h1 class="main-heading">مرحباً بك في متجر 7soon!</h1>
             <p class="main-description">متجر الكتروني يوفر لك أفضل المنتجات في عالم التكنولوجيا.</p>
             <button class="shop-now">تسوق الآن</button>
         </section>
@@ -39,7 +41,7 @@
                 <div class="product-card">
                     <img src="product1.jpg" alt="منتج 1">
                     <h3 class="product-name">tweak</h3>
-                    <p class="product-description">زياده فريمات وتخفيف الجهاز.</p>
+                    <p class="product-description">زيادة الفريمات وتخفيف الجهاز.</p>
                     <p class="product-price">السعر: $15</p>
                     <button class="add-to-cart" onclick="addToCart('منتج 1', 100)">إضافة إلى السلة</button>
                 </div>
@@ -48,7 +50,7 @@
                 <div class="product-card">
                     <img src="product2.jpg" alt="منتج 2">
                     <h3 class="product-name">macro</h3>
-                    <p class="product-description">تسوي ادت بضغطخ زر 2.</p>
+                    <p class="product-description">تسوي إدات بضغط زر 2.</p>
                     <p class="product-price">السعر: $10</p>
                     <button class="add-to-cart" onclick="addToCart('منتج 2', 150)">إضافة إلى السلة</button>
                 </div>
@@ -57,7 +59,7 @@
                 <div class="product-card">
                     <img src="product3.jpg" alt="منتج 3">
                     <h3 class="product-name">hacke fortnite 3</h3>
-                    <p class="product-description">هاك فورتنايت في ميزات ماتنعد 3.</p>
+                    <p class="product-description">هاك فورتنايت مع ميزات متعددة.</p>
                     <p class="product-price">السعر: $25</p>
                     <button class="add-to-cart" onclick="addToCart('منتج 3', 200)">إضافة إلى السلة</button>
                 </div>
@@ -79,18 +81,20 @@
         <!-- سيتم تحميل زر بايبال هنا -->
     </div>
 
+    <script>
+        // وظيفة إضافة منتج إلى السلة (أمثلة فقط، يمكنك تخصيصها حسب الحاجة)
+        function addToCart(productName, price) {
+            alert(productName + ' تم إضافته إلى السلة بسعر ' + price + '$');
+        }
+
+        // وظيفة لعرض سلة التسوق (تخصيصها حسب ما تريده)
+        function viewCart() {
+            alert('عرض سلة التسوق');
+            // يمكنك إضافة الكود لعرض محتويات السلة أو توجيه المستخدم إلى صفحة السلة
+            window.location.href = "/cart";  // توجيه إلى صفحة السلة
+        }
+    </script>
+
     <script src="scripts.js"></script>
 </body>
 </html>
-<header>
-    <nav>
-        <ul>
-            <li><a href="/">الرئيسية</a></li>
-            <li><a href="/about">من نحن</a></li>
-            <li><a href="/services">خدماتنا</a></li>
-            <li><a href="/contact">اتصل بنا</a></li>
-            <!-- زر السلة -->
-            <li><button id="cartButton" onclick="viewCart()">سلة التسوق</button></li>
-        </ul>
-    </nav>
-</header>
