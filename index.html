@@ -1,108 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7soon Store</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>موقع 7soon</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- الهيدر -->
+
+    <!-- Navbar -->
     <header>
-        <div class="container">
-            <h1>Welcome to 7soon Store</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="javascript:void(0);" id="cart-button">Cart (<span id="cart-count">0</span>)</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="javascript:void(0);" id="cert-button">Cert</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- قسم الصفحة الرئيسية -->
-    <section id="home" class="section home-section">
-        <h2>Discover Our Exclusive Gaming Products</h2>
-        <p>Your one-stop shop for digital gaming solutions!</p>
-        <a href="#shop" class="btn">Shop Now</a>
-    </section>
+    <!-- محتوى الصفحة الرئيسية -->
+    <main>
+        <section class="intro">
+            <h1>مرحباً بكم في 7soon!</h1>
+            <p>متجر الكتروني يوفر لك أفضل المنتجات في عالم التكنولوجيا.</p>
+            <button class="shop-now">تسوق الآن</button>
+        </section>
+    </main>
 
-    <!-- قسم المنتجات -->
-    <section id="shop" class="section shop-section">
-        <h2>Our Products</h2>
-        <div class="product" data-id="1" data-name="Gaming Software" data-price="20.00">
-            <h3>fortnite hack</h3>
-            <p>Price: $20.00</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
-        <div class="product" data-id="2" data-name="Streaming Tool" data-price="15.00">
-            <h3>tweak</h3>
-            <p>Price: $15.00</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
-    </section>
-
-    <!-- نافذة سلة الشراء (Modal) -->
-    <div id="cart-modal" class="modal">
+    <!-- نافذة Cert (Modal) -->
+    <div id="cert-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h2>Your Cart</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody id="cart-items">
-                    <tr>
-                        <td colspan="4">Your cart is empty</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div id="checkout">
-                <h3>Total: $<span id="cart-total">0.00</span></h3>
-                <div id="paypal-button-container"></div>
-            </div>
+            <h2>معلومات Cert</h2>
+            <p>هذه هي صفحة الشهادات. يمكنك هنا الاطلاع على جميع تفاصيل الشهادات.</p>
         </div>
     </div>
 
-    <!-- قسم التواصل -->
-    <section id="contact" class="section contact-section">
-        <h2>Contact Us</h2>
-        <p>Email: 7soonalmshaweh@gmail.com</p>
-        <p>Phone: +965 50988144</p>
-    </section>
-
-    <!-- الفوتر -->
-    <footer>
-        <p>&copy; 2024 7soon Store. All rights reserved.</p>
-    </footer>
-
-    <!-- تضمين PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=iaBhm7f9sM_zTpAgmRqPQu8iKY5-nRn_Ae4c5POc-A-WgTpiC8MpPEFdttmd8yDZnETaxDjZepN&currency=USD"></script>
-
-    <!-- كود السلة -->
     <script src="scripts.js"></script>
-</body>
-</html>
-<li><a href="javascript:void(0);" id="cert-button">Cert</a></li>
-<button onclick="myFunction()">Click me</button>
-<!-- نافذة Cert (Modal) -->
-<div id="cert-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Cert Information</h2>
-        <p>This is the certificate page. Here you can view all certification details.</p>
-    </div>
-</div>
-
-<!-- زر Cert في القائمة -->
-<li><a href="javascript:void(0);" id="cert-button">Cert</a></li>
-<script src="scripts.js"></script>
 </body>
 </html>
