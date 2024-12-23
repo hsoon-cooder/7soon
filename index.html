@@ -2,12 +2,11 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>موقع 7soon</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- تضمين بايبال JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=iaBhm7f9sM_zTpAgmRqPQu8iKY5-nRn_Ae4c5POc-A-WgTpiC8MpPEFdttmd8yDZnETaxDjZepN&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
 </head>
 <body>
 
@@ -40,7 +39,7 @@
                     <h3 class="product-name">tweak</h3>
                     <p class="product-description">زيادة فريمات وتخفيف الجهاز.</p>
                     <p class="product-price">السعر: $15</p>
-                    <button class="add-to-cart" onclick="addToCart('منتج 1', 15)">إضافة إلى السلة</button>
+                    <button class="add-to-cart" onclick="addToCart('tweak', 15)">إضافة إلى السلة</button>
                 </div>
 
                 <!-- منتج 2 -->
@@ -49,7 +48,7 @@
                     <h3 class="product-name">macro</h3>
                     <p class="product-description">تسوي إدخال بضغطة زر.</p>
                     <p class="product-price">السعر: $10</p>
-                    <button class="add-to-cart" onclick="addToCart('منتج 2', 10)">إضافة إلى السلة</button>
+                    <button class="add-to-cart" onclick="addToCart('macro', 10)">إضافة إلى السلة</button>
                 </div>
 
                 <!-- منتج 3 -->
@@ -58,7 +57,7 @@
                     <h3 class="product-name">hacke fortnite 3</h3>
                     <p class="product-description">هاك فورتنايت مع ميزات متعددة.</p>
                     <p class="product-price">السعر: $25</p>
-                    <button class="add-to-cart" onclick="addToCart('منتج 3', 25)">إضافة إلى السلة</button>
+                    <button class="add-to-cart" onclick="addToCart('hacke fortnite 3', 25)">إضافة إلى السلة</button>
                 </div>
             </div>
         </section>
@@ -74,10 +73,10 @@
     </main>
 
     <!-- سلة التسوق -->
-    <div id="cart-container" style="display:none;">
+    <div id="cart-container">
         <h3>سلة التسوق</h3>
         <ul id="cart-items-list"></ul>
-        <p id="cart-total">المجموع: 0$</p>
+        <p id="cart-total">المجموع: $0</p>
         <div id="paypal-button-container"></div>
     </div>
 
