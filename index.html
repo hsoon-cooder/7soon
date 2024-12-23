@@ -15,7 +15,7 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#shop">Shop</a></li>
-                    <li><a href="#cart" id="cart-button">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="javascript:void(0);" id="cart-button">Cart (<span id="cart-count">0</span>)</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -33,40 +33,43 @@
     <section id="shop" class="section shop-section">
         <h2>Our Products</h2>
         <div class="product" data-id="1" data-name="Gaming Software" data-price="20.00">
-            <h3>tweak</h3>
+            <h3>fortnite hack</h3>
             <p>Price: $20.00</p>
             <button class="add-to-cart">Add to Cart</button>
         </div>
         <div class="product" data-id="2" data-name="Streaming Tool" data-price="15.00">
-            <h3>hack fortnite</h3>
-            <p>Price: $25.00</p>
+            <h3>tweak</h3>
+            <p>Price: $15.00</p>
             <button class="add-to-cart">Add to Cart</button>
         </div>
     </section>
 
-    <!-- قسم السلة -->
-    <section id="cart" class="section cart-section">
-        <h2>Your Cart</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody id="cart-items">
-                <tr>
-                    <td colspan="4">Your cart is empty</td>
-                </tr>
-            </tbody>
-        </table>
-        <div id="checkout">
-            <h3>Total: $<span id="cart-total">0.00</span></h3>
-            <div id="paypal-button-container"></div>
+    <!-- نافذة سلة الشراء (Modal) -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Your Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <tr>
+                        <td colspan="4">Your cart is empty</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="checkout">
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+                <div id="paypal-button-container"></div>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- قسم التواصل -->
     <section id="contact" class="section contact-section">
