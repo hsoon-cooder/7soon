@@ -1,4 +1,4 @@
-/* إعدادات أساسية */
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -8,121 +8,71 @@
 /* إعدادات عامة */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #000; /* خلفية سوداء */
+    color: #fff; /* نص أبيض */
+    line-height: 1.6;
 }
 
-/* التنسيق للـ Navbar */
-.navbar {
-    background-color: #0044cc;
+header {
+    background-color: #1a1a1a; /* خلفية داكنة */
+    color: #25f4a2; /* لون أزرق فاتح */
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-}
-
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.navbar .nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-/* التنسيق للترويسة */
-.hero {
-    background-color: #0044cc;
-    color: white;
     text-align: center;
-    padding: 80px 20px;
+    border-bottom: 3px solid #e60000; /* خط أحمر */
 }
 
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
+h1 {
+    font-size: 24px;
 }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
+.paypal-section {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1a1a1a; /* خلفية داكنة للجزء الرئيسي */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.hero .btn {
-    background-color: white;
-    color: #0044cc;
-    padding: 15px 30px;
-    font-size: 18px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.hero .btn:hover {
-    background-color: #0033a0;
-    color: white;
-}
-
-/* التنسيق لمنتجات مميزة */
-.features {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #f4f4f4;
-}
-
-.features h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
-    color: #0044cc;
-}
-
-.feature-item {
-    display: inline-block;
-    width: 30%;
-    margin: 20px 1%;
-    padding: 25px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.feature-item:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.feature-item h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: #0044cc;
-}
-
-.feature-item p {
+label {
+    margin-bottom: 10px;
     font-size: 16px;
-    color: #666;
+    color: #25f4a2; /* لون أزرق فاتح */
 }
 
-/* التنسيق للتذييل */
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer p {
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
     font-size: 14px;
+    background-color: #333; /* خلفية مدخلات داكنة */
+    color: #fff; /* نص أبيض */
+}
+
+button.submit-btn {
+    background-color: #e60000; /* لون أحمر */
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.submit-btn:hover {
+    background-color: #cc0000; /* لون أحمر أغمق عند التمرير */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #25f4a2;
+    border-top: 3px solid #e60000;
 }
