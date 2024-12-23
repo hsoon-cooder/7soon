@@ -1,1 +1,145 @@
+/* تنسيق الـ Navbar */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
 
+nav ul {
+    list-style: none;
+    display: inline-flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+/* تنسيق الروابط (nav-link) */
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #444;
+    transform: translateY(-3px);
+}
+
+/* زر سلة التسوق */
+.cart-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cart-btn:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+/* تنسيق المنتجات */
+.product-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #555;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.add-to-cart {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #0056b3;
+}
+
+/* سلة التسوق */
+#cart-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    display: none;
+}
+
+/* نافذة Cert */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
