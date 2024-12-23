@@ -3,41 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay with Visa</title>
+    <title>7soon Store</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- الهيدر -->
     <header>
-        <h1>Payment Page</h1>
+        <div class="container">
+            <h1>Welcome to 7soon Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="payment-section">
-        <h2>Complete Your Payment</h2>
-        <div id="paypal-button-container"></div>
+    <!-- قسم الصفحة الرئيسية -->
+    <section id="home" class="section home-section">
+        <h2>Discover Our Exclusive Gaming Products</h2>
+        <p>Your one-stop shop for digital gaming solutions!</p>
+        <a href="#shop" class="btn">Shop Now</a>
     </section>
 
+    <!-- قسم المنتجات -->
+    <section id="shop" class="section shop-section">
+        <h2>Our Products</h2>
+        <div class="product">
+            <h3>Gaming Software - $20</h3>
+            <div id="paypal-button-container"></div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact" class="section contact-section">
+        <h2>Contact Us</h2>
+        <p>Email: support@7soon.com</p>
+        <p>Phone: +123 456 7890</p>
+    </section>
+
+    <!-- الفوتر -->
     <footer>
-        <p>&copy; 2024 Your Website</p>
+        <p>&copy; 2024 7soon Store. All rights reserved.</p>
     </footer>
 
-    <!-- PayPal SDK -->
+    <!-- تضمين PayPal SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=iaBhm7f9sM_zTpAgmRqPQu8iKY5-nRn_Ae4c5POc-A-WgTpiC8MpPEFdttmd8yDZnETaxDjZepN&currency=USD"></script>
-
     <script>
-        // Render the PayPal button
         paypal.Buttons({
             createOrder: function(data, actions) {
-                // Set up the transaction
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '10.00' // Replace with the price of your product
+                            value: '20.00'
                         }
                     }]
                 });
             },
             onApprove: function(data, actions) {
-                // Capture the funds
                 return actions.order.capture().then(function(details) {
                     alert('Transaction completed by ' + details.payer.name.given_name);
                 });
@@ -46,7 +71,7 @@
                 console.error(err);
                 alert('An error occurred during the payment process.');
             }
-        }).render('#paypal-button-container'); // Display the PayPal button
+        }).render('#paypal-button-container');
     </script>
 </body>
 </html>
