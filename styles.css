@@ -1,34 +1,67 @@
-/* تنسيق الهيدر */
-header {
-    background-color: #111;
-    color: white;
-    padding: 20px;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
+/* التنسيقات العامة */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Navbar */
+header {
+    background-color: #333;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
     display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-header nav ul li {
-    margin-left: 20px;
-}
-
-header nav ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 18px;
 }
 
-/* تنسيق نافذة سلة الشراء (Modal) */
+/* محتوى الصفحة الرئيسية */
+.intro {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.intro h1 {
+    font-size: 3rem;
+    color: #e60000; /* لون أحمر مميز */
+}
+
+.intro p {
+    font-size: 1.5rem;
+    color: #ddd;
+    margin-top: 20px;
+}
+
+.shop-now {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.shop-now:hover {
+    background-color: #0056b3;
+}
+
+/* Modal (نافذة Cert) */
 .modal {
     display: none;
     position: fixed;
@@ -37,23 +70,25 @@ header nav ul li a {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية داكنة */
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #fff;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
+    color: #333;
 }
 
 .close-button {
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .close-button:hover,
@@ -61,34 +96,4 @@ header nav ul li a {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-/* تنسيق الزر PayPal */
-#paypal-button-container {
-    margin-top: 20px;
-}
-
-/* تنسيق بقية الصفحة */
-body {
-    font-family: Arial, sans-serif;
-}
-
-section {
-    padding: 40px 0;
-}
-
-.product {
-    margin-bottom: 20px;
-}
-
-.product button {
-    padding: 10px 20px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.product button:hover {
-    background-color: #4cae4c;
 }
