@@ -33,6 +33,7 @@
         <h2>Our Products</h2>
         <div class="product">
             <h3>Gaming Software - $20</h3>
+            <!-- زر الدفع يظهر هنا فقط -->
             <div id="paypal-button-container"></div>
         </div>
     </section>
@@ -52,12 +53,13 @@
     <!-- تضمين PayPal SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=iaBhm7f9sM_zTpAgmRqPQu8iKY5-nRn_Ae4c5POc-A-WgTpiC8MpPEFdttmd8yDZnETaxDjZepN&currency=USD"></script>
     <script>
+        // زر الدفع
         paypal.Buttons({
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '20.00'
+                            value: '20.00' // السعر
                         }
                     }]
                 });
@@ -71,7 +73,7 @@
                 console.error(err);
                 alert('An error occurred during the payment process.');
             }
-        }).render('#paypal-button-container');
+        }).render('#paypal-button-container'); // زر الدفع يظهر فقط في قسم المنتجات
     </script>
 </body>
 </html>
