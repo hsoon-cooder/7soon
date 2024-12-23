@@ -54,3 +54,9 @@ button:hover, .nav-link:hover {
     color: white;
     transform: scale(1.1);
 }
+/* زر بايبال */
+#paypal-button-container {
+    margin-top: 20px;
+    display: none;  /* إخفاء زر بايبال افتراضيًا */
+    text-align: center;
+}
