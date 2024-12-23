@@ -45,3 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+function myFunction() {
+    alert("Button clicked!");
+}
