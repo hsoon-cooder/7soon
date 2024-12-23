@@ -1,31 +1,67 @@
-// إظهار نافذة Cert
-document.addEventListener("DOMContentLoaded", function () {
-    const certButton = document.querySelector("#cert-button");
-    const modalCert = document.querySelector("#cert-modal");
-    const closeButtons = document.querySelectorAll(".close-button");
-    const languageToggleButton = document.querySelector("#language-toggle");
+// تخزين محتويات السلة
+let cart = [];
 
-    certButton.addEventListener("click", function () {
-        modalCert.style.display = "block"; // عرض نافذة Cert
-    });
-
-    closeButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            modalCert.style.display = "none"; // إغلاق نافذة Cert
-        });
-    });
-
-    window.addEventListener("click", function(event) {
-        if (event.target === modalCert) {
-            modalCert.style.display = "none"; // إغلاق نافذة Cert عند الضغط خارجها
-        }
-    });
-
-    // تغيير اللغة عند الضغط على زر تغيير اللغة
-    languageToggleButton.addEventListener("click", function () {
-        const currentLang = document.documentElement.lang;
-        if (currentLang === "ar")
-function viewCart() {
-    // يمكن تغيير الرابط حسب الصفحة الخاصة بسلة التسوق
-    window.location.href = "/cart";  // يوجه إلى صفحة السلة
+// إضافة منتج إلى السلة
+function addToCart(productName, price) {
+    cart.push({ productName, price });
+    updateCart();
 }
+
+// تحديث السلة
+function updateCart() {
+    const cartList = document.getElementById("cart-items-list");
+    const cartTotal = document.getElementById("cart-total");
+    cartList.innerHTML = "";  // مسح السلة الحالية
+
+    let total = 0;
+
+    // إضافة العناصر إلى السلة
+    cart.forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.productName} - $${item.price}`;
+        cartList.appendChild(listItem);
+        total += item.price;
+    });
+
+    // تحديث المجموع
+    cartTotal.textContent = total;
+
+    // تفعيل زر بايبال إذا كان المجموع أكبر من 0
+    if (total > 0) {
+        renderPaypalButton();
+    }
+}
+
+// التبديل بين إظهار وإخفاء السلة
+function toggleCart() {
+    const cartContainer = document.getElementById("cart-container");
+    cartContainer.style.display = cartContainer.style.display === "block" ? "none" : "block";
+}
+
+// عرض زر بايبال
+function renderPaypalButton() {
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: document.getElementById("cart-total").textContent
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert("تم الدفع بنجاح! مرحباً " + details.payer.name.given_name);
+            });
+        }
+    }).render('#paypal-button-container');
+}
+
+// إغلاق نافذة Cert
+function closeCert() {
+    document.getElementById("cert-modal").style.display = "none";
+}
+
+// تفعيل السلة عند الضغط على زر السلة
+document.getElementById("cartButton").addEventListener("click", toggleCart);
