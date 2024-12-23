@@ -25,3 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     languageToggleButton.addEventListener("click", function () {
         const currentLang = document.documentElement.lang;
         if (currentLang === "ar")
+function viewCart() {
+    // يمكن تغيير الرابط حسب الصفحة الخاصة بسلة التسوق
+    window.location.href = "/cart";  // يوجه إلى صفحة السلة
+}
