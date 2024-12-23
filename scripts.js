@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // عناصر الصفحة
+    // فتح نافذة Cert عند الضغط على الزر
     const certButton = document.querySelector("#cert-button");
     const modalCert = document.querySelector("#cert-modal");
     const closeButtons = document.querySelectorAll(".close-button");
 
-    // فتح نافذة Cert (Modal) عند الضغط على الزر Cert
+    // فتح نافذة Cert (Modal) عند الضغط على زر Cert
     certButton.addEventListener("click", function () {
         modalCert.style.display = "block"; // عرض نافذة Cert
     });
