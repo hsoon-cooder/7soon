@@ -8,11 +8,12 @@
 /* إعدادات عامة */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000; /* خلفية سوداء */
-    color: #fff; /* نص أبيض */
+    background-color: #000; /* لون الخلفية أسود */
+    color: #fff; /* لون النص أبيض */
     line-height: 1.6;
 }
 
+/* تنسيق الهيدر */
 header {
     background-color: #1a1a1a; /* خلفية داكنة */
     color: #25f4a2; /* لون أزرق فاتح */
@@ -25,13 +26,14 @@ h1 {
     font-size: 24px;
 }
 
+/* تنسيق قسم PayPal */
 .paypal-section {
     max-width: 500px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #1a1a1a; /* خلفية داكنة للجزء الرئيسي */
+    background-color: #1a1a1a; /* خلفية داكنة للقسم */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* تأثير بسيط */
 }
 
 form {
@@ -51,7 +53,7 @@ input {
     border: none;
     border-radius: 5px;
     font-size: 14px;
-    background-color: #333; /* خلفية مدخلات داكنة */
+    background-color: #333; /* خلفية المدخلات داكنة */
     color: #fff; /* نص أبيض */
 }
 
@@ -69,10 +71,11 @@ button.submit-btn:hover {
     background-color: #cc0000; /* لون أحمر أغمق عند التمرير */
 }
 
+/* تنسيق الفوتر */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #1a1a1a;
-    color: #25f4a2;
+    color: #25f4a2; /* لون أزرق فاتح */
     border-top: 3px solid #e60000;
 }
