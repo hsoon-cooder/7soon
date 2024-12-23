@@ -1,10 +1,12 @@
 let cart = [];
 
+// إضافة منتج إلى السلة
 function addToCart(productName, price) {
     cart.push({ productName, price });
     updateCart();
 }
 
+// تحديث السلة وعرض العناصر
 function updateCart() {
     const cartList = document.getElementById("cart-items-list");
     const cartTotal = document.getElementById("cart-total");
@@ -30,6 +32,7 @@ function updateCart() {
     }
 }
 
+// تفعيل زر بايبال
 function renderPaypalButton(totalAmount) {
     paypal.Buttons({
         createOrder: function(data, actions) {
@@ -54,11 +57,13 @@ function renderPaypalButton(totalAmount) {
     }).render('#paypal-button-container');
 }
 
+// إظهار أو إخفاء السلة
 function toggleCart() {
     const cartContainer = document.getElementById("cart-container");
     cartContainer.style.display = cartContainer.style.display === "block" ? "none" : "block";
 }
 
+// إغلاق نافذة Cert
 function closeCert() {
     document.getElementById("cert-modal").style.display = "none";
 }
