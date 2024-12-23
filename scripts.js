@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartTotalElement = document.querySelector("#cart-total");
     const cartCountElement = document.querySelector("#cart-count");
     const cartButton = document.querySelector("#cart-button");
+    const modal = document.querySelector("#cart-modal");
+    const closeButton = document.querySelector(".close-button");
 
     // تحديث السلة
     function updateCart() {
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        cart.forEach((item, index) => {
+        cart.forEach((item) => {
             const itemTotal = (item.price * item.quantity).toFixed(2);
             total += parseFloat(itemTotal);
 
@@ -38,8 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // عرض زر PayPal
     function renderPayPalButton(total) {
         const paypalContainer = document.querySelector("#paypal-button-container");
-        
-        // تأكد من أن زر PayPal يتم عرضه فقط إذا كانت السلة تحتوي على منتجات
+
         if (total > 0) {
             paypalContainer.innerHTML = ""; // Clear any existing button
             paypal.Buttons({
@@ -68,6 +69,17 @@ document.addEventListener("DOMContentLoaded", function () {
             paypalContainer.innerHTML = ""; // Hide PayPal button if total is 0
         }
     }
+
+    // فتح نافذة السلة (Modal)
+    cartButton.addEventListener("click", function () {
+        modal.style.display = "block"; // فتح النافذة
+        updateCart(); // تحديث محتوى السلة
+    });
+
+    // إغلاق نافذة السلة (Modal)
+    closeButton.addEventListener("click", function () {
+        modal.style.display = "none"; // إغلاق النافذة
+    });
 
     // إضافة منتج إلى السلة
     document.querySelectorAll(".add-to-cart").forEach((button) => {
