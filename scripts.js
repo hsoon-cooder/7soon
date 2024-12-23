@@ -48,3 +48,4 @@ document.addEventListener("DOMContentLoaded", function () {
 function myFunction() {
     alert("Button clicked!");
 }
+<script src="your_script.js"></script>
