@@ -19,7 +19,7 @@
                 <li><a href="products.html" class="products-link">المنتجات</a></li>
                 <li><a href="javascript:void(0);" id="cert-button" class="cert-link">Cert</a></li>
                 <!-- زر السلة -->
-                <li><button id="cartButton" onclick="viewCart()">سلة التسوق</button></li>
+                <li><button id="cartButton" onclick="toggleCart()">سلة التسوق</button></li>
             </ul>
         </nav>
         <!-- زر تغيير اللغة -->
@@ -43,7 +43,7 @@
                     <h3 class="product-name">tweak</h3>
                     <p class="product-description">زيادة الفريمات وتخفيف الجهاز.</p>
                     <p class="product-price">السعر: $15</p>
-                    <button class="add-to-cart" onclick="addToCart('منتج 1', 100)">إضافة إلى السلة</button>
+                    <button class="add-to-cart" onclick="addToCart('منتج 1', 15)">إضافة إلى السلة</button>
                 </div>
 
                 <!-- منتج 2 -->
@@ -52,7 +52,7 @@
                     <h3 class="product-name">macro</h3>
                     <p class="product-description">تسوي إدات بضغط زر 2.</p>
                     <p class="product-price">السعر: $10</p>
-                    <button class="add-to-cart" onclick="addToCart('منتج 2', 150)">إضافة إلى السلة</button>
+                    <button class="add-to-cart" onclick="addToCart('منتج 2', 10)">إضافة إلى السلة</button>
                 </div>
 
                 <!-- منتج 3 -->
@@ -61,7 +61,7 @@
                     <h3 class="product-name">hacke fortnite 3</h3>
                     <p class="product-description">هاك فورتنايت مع ميزات متعددة.</p>
                     <p class="product-price">السعر: $25</p>
-                    <button class="add-to-cart" onclick="addToCart('منتج 3', 200)">إضافة إلى السلة</button>
+                    <button class="add-to-cart" onclick="addToCart('منتج 3', 25)">إضافة إلى السلة</button>
                 </div>
             </div>
         </section>
@@ -70,29 +70,94 @@
     <!-- نافذة Cert (Modal) -->
     <div id="cert-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
+            <span class="close-button" onclick="closeCert()">&times;</span>
             <h2 class="cert-heading">معلومات Cert</h2>
             <p class="cert-description">هذه هي صفحة الشهادات. يمكنك هنا الاطلاع على جميع تفاصيل الشهادات.</p>
         </div>
     </div>
 
-    <!-- زر بايبال -->
-    <div id="paypal-button-container">
-        <!-- سيتم تحميل زر بايبال هنا -->
+    <!-- سلة التسوق -->
+    <div id="cart-container" class="cart-container">
+        <div id="cart-content">
+            <h2>سلة التسوق</h2>
+            <ul id="cart-items-list">
+                <!-- سيتم إضافة العناصر هنا بواسطة جافا سكريبت -->
+            </ul>
+            <p>المجموع: $<span id="cart-total">0</span></p>
+            <!-- زر الدفع بايبال -->
+            <div id="paypal-button-container"></div>
+        </div>
+        <button class="close-cart" onclick="toggleCart()">إغلاق السلة</button>
     </div>
 
     <script>
-        // وظيفة إضافة منتج إلى السلة (أمثلة فقط، يمكنك تخصيصها حسب الحاجة)
+        // تخزين محتويات السلة
+        let cart = [];
+
+        // إضافة منتج إلى السلة
         function addToCart(productName, price) {
-            alert(productName + ' تم إضافته إلى السلة بسعر ' + price + '$');
+            cart.push({ productName, price });
+            updateCart();
         }
 
-        // وظيفة لعرض سلة التسوق (تخصيصها حسب ما تريده)
-        function viewCart() {
-            alert('عرض سلة التسوق');
-            // يمكنك إضافة الكود لعرض محتويات السلة أو توجيه المستخدم إلى صفحة السلة
-            window.location.href = "/cart";  // توجيه إلى صفحة السلة
+        // تحديث السلة
+        function updateCart() {
+            const cartList = document.getElementById("cart-items-list");
+            const cartTotal = document.getElementById("cart-total");
+            cartList.innerHTML = "";  // مسح السلة الحالية
+
+            let total = 0;
+
+            // إضافة العناصر إلى السلة
+            cart.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${item.productName} - $${item.price}`;
+                cartList.appendChild(listItem);
+                total += item.price;
+            });
+
+            // تحديث المجموع
+            cartTotal.textContent = total;
+
+            // تفعيل زر بايبال
+            if (total > 0) {
+                renderPaypalButton();
+            }
         }
+
+        // التبديل بين إظهار وإخفاء السلة
+        function toggleCart() {
+            const cartContainer = document.getElementById("cart-container");
+            cartContainer.style.display = cartContainer.style.display === "block" ? "none" : "block";
+        }
+
+        // عرض زر بايبال
+        function renderPaypalButton() {
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: document.getElementById("cart-total").textContent
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert("تم الدفع بنجاح! مرحباً " + details.payer.name.given_name);
+                    });
+                }
+            }).render('#paypal-button-container');
+        }
+
+        // إغلاق نافذة Cert
+        function closeCert() {
+            document.getElementById("cert-modal").style.display = "none";
+        }
+
+        // تفعيل السلة عند الضغط على زر السلة
+        document.getElementById("cartButton").addEventListener("click", toggleCart);
     </script>
 
     <script src="scripts.js"></script>
