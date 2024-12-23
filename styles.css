@@ -79,3 +79,37 @@ footer {
     color: #25f4a2; /* لون أزرق فاتح */
     border-top: 3px solid #e60000;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* خلفية سوداء */
+    color: #fff; /* لون النص */
+    text-align: center;
+    padding: 20px;
+}
+
+header {
+    background-color: #1a1a1a;
+    color: #25f4a2;
+    padding: 20px;
+    border-bottom: 3px solid #e60000;
+}
+
+.payment-section {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    max-width: 500px;
+}
+
+h2 {
+    color: #25f4a2;
+}
+
+footer {
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #25f4a2;
+    border-top: 3px solid #e60000;
+}
