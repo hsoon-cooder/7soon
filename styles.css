@@ -153,3 +153,15 @@ nav ul li a {
     text-decoration: none;
     cursor: pointer;
 }
+#cartButton {
+    background-color: #4CAF50; /* اللون الأخضر */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cartButton:hover {
+    background-color: #45a049; /* تغيير اللون عند التحويم */
+}
